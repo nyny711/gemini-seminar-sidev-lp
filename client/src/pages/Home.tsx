@@ -851,7 +851,7 @@ export default function Home() {
 
             <div>
               <h3 className="font-bold text-lg mb-4">その他</h3>
-              <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+              <a href="https://www.anyenv-inc.com/privacypolicy" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                 プライバシーポリシー
               </a>
             </div>

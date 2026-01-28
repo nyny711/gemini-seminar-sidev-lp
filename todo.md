@@ -87,3 +87,6 @@
 ## 学べることセクションのレイアウト修正
 - [x] カードヘッダーの文字位置を背景色の上下中央に配置（min-h-[120px]、pb-8削除）
 - [x] 4つすべてのカードに同じ調整を適用
+
+## プライバシーポリシーリンクの変更
+- [x] プライバシーポリシーのリンクをhttps://www.anyenv-inc.com/privacypolicyに変更（target="_blank"、rel="noopener noreferrer"追加）
