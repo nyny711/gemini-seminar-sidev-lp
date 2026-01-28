@@ -174,7 +174,7 @@ export default function Home() {
                 type: "spring",
                 stiffness: 100
               }}
-              className="mb-10 max-w-3xl mx-auto"
+              className="mb-10 max-w-2xl mx-auto"
             >
               <motion.div 
                 animate={{ 
@@ -189,32 +189,30 @@ export default function Home() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="relative bg-gradient-to-br from-amber-400 via-orange-400 to-red-500 rounded-2xl p-1"
+                className="relative bg-gradient-to-br from-amber-400 via-orange-400 to-red-500 rounded-xl p-1"
               >
-                <div className="bg-slate-900 rounded-xl p-8 md:p-10">
+                <div className="bg-slate-900 rounded-lg p-6 md:p-8">
                   <div className="flex items-center justify-center gap-4 mb-4">
                     <motion.div
                       animate={{ rotate: [0, 10, -10, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <Gift className="h-10 w-10 md:h-12 md:w-12 text-amber-400" />
+                      <Gift className="h-8 w-8 md:h-10 md:w-10 text-amber-400" />
                     </motion.div>
-                    <h3 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 bg-clip-text text-transparent">
+                    <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 bg-clip-text text-transparent">
                       参加特典
                     </h3>
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <Sparkles className="h-10 w-10 md:h-12 md:w-12 text-yellow-300" />
+                      <Sparkles className="h-8 w-8 md:h-10 md:w-10 text-yellow-300" />
                     </motion.div>
                   </div>
                   <div className="text-center">
-                    <p className="text-xl md:text-3xl text-white font-bold mb-2">
-                      業界活用事例やプロンプト集を
-                    </p>
-                    <p className="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-yellow-300 via-amber-300 to-orange-300 bg-clip-text text-transparent">
-                      無料プレゼント！
+                    <p className="text-lg md:text-xl text-white font-bold">
+                      すぐに使える<span className="text-amber-300">営業活用事例集</span>を<br className="sm:hidden" />
+                      <span className="text-xl md:text-2xl font-extrabold bg-gradient-to-r from-yellow-300 via-amber-300 to-orange-300 bg-clip-text text-transparent">無料プレゼント！</span>
                     </p>
                   </div>
                 </div>
