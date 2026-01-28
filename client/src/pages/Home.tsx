@@ -18,11 +18,11 @@ import { toast } from "sonner";
 const seminar = {
   id: "vol1",
   title: "「商談時間」を最大化する",
-  subtitle: "～非コア業務をAIで自動化し、顧客に向き合う～",
+  subtitle: "～複雑性の高い業務をAIで効率化する～",
   date: "2026年2月10日(火)",
   time: "14:00～15:00",
   image: "/seminar-vol1.png",
-  description: "RFP・見積・技術照会...その事務作業をAIで効率的に行えます。営業マンを「本来の仕事」に集中させる具体的メソッドを解説！"
+  description: "RFP・見積・技術照会、顧客管理をAIで効率的に行えます。営業マンを「本来の仕事」に集中させる具体的メソッドを解説！"
 };
 
 export default function Home() {
@@ -301,8 +301,8 @@ export default function Home() {
               className="group relative"
             >
               <Card className="border-2 border-slate-200 hover:border-cyan-500 transition-all shadow-sm hover:shadow-lg h-full">
-                <CardHeader className="bg-gradient-to-br from-cyan-50 to-blue-50 pb-8">
-                  <div className="flex items-start gap-4">
+                <CardHeader className="bg-gradient-to-br from-cyan-50 to-teal-50 pb-8">
+                  <div className="flex items-center gap-4">
                     <div className="flex-shrink-0 bg-cyan-600 text-white rounded-lg p-3">
                       <Search className="h-6 w-6" />
                     </div>
@@ -335,7 +335,7 @@ export default function Home() {
             >
               <Card className="border-2 border-slate-200 hover:border-cyan-500 transition-all shadow-sm hover:shadow-lg h-full">
                 <CardHeader className="bg-gradient-to-br from-blue-50 to-indigo-50 pb-8">
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="flex-shrink-0 bg-blue-600 text-white rounded-lg p-3">
                       <FileText className="h-6 w-6" />
                     </div>
@@ -368,12 +368,12 @@ export default function Home() {
             >
               <Card className="border-2 border-slate-200 hover:border-cyan-500 transition-all shadow-sm hover:shadow-lg h-full">
                 <CardHeader className="bg-gradient-to-br from-indigo-50 to-purple-50 pb-8">
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="flex-shrink-0 bg-indigo-600 text-white rounded-lg p-3">
                       <MessageSquare className="h-6 w-6" />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-xl mb-2 text-slate-900">商談記録の整理とアクション整理の効率化</CardTitle>
+                      <CardTitle className="text-xl mb-2 text-slate-900">商談記録とアクション整理の効率化</CardTitle>
                       <p className="text-sm text-slate-600 font-normal">商談内容を構造化し、次のアクションを明確化</p>
                     </div>
                   </div>
@@ -401,7 +401,7 @@ export default function Home() {
             >
               <Card className="border-2 border-slate-200 hover:border-cyan-500 transition-all shadow-sm hover:shadow-lg h-full">
                 <CardHeader className="bg-gradient-to-br from-purple-50 to-pink-50 pb-8">
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="flex-shrink-0 bg-purple-600 text-white rounded-lg p-3">
                       <BrainCircuit className="h-6 w-6" />
                     </div>
