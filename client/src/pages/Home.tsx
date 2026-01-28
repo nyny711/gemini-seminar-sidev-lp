@@ -244,10 +244,10 @@ export default function Home() {
             className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12"
           >
             {[
-              { icon: FileText, title: "日報作成に時間がかかる", desc: "毎日の営業日報作成に30分以上かかっている" },
-              { icon: Search, title: "技術情報の検索が大変", desc: "過去の提案資料や技術ドキュメントを探すのに時間がかかる" },
-              { icon: MessageSquare, title: "提案書作成が属人化", desc: "提案書の作成方法が担当者によってバラバラ" },
-              { icon: BarChart3, title: "商談準備に追われる", desc: "資料作成に時間を取られ、顧客対応の時間が不足" }
+              { icon: Target, title: "提案準備の複雑性", desc: "複数の情報源から必要な情報を収集・整理する作業が煩雑で時間がかかる" },
+              { icon: Users, title: "要件定義の属人化と情報の点在", desc: "営業・SE個人の勘に依存し、情報が点在・継承不能な状態" },
+              { icon: BarChart3, title: "見積もり精度の低さとリスク把握不足", desc: "開発リスクの把握が不十分で赤字案件が発生" },
+              { icon: FileText, title: "提案書作成の非効率と品質のばらつき", desc: "トップ営業の暗黙知が形式知化されず、提案の出し遅れで失注" }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -418,7 +418,7 @@ export default function Home() {
                   </p>
                   <div className="flex items-start gap-2 text-sm text-slate-600">
                     <CheckCircle2 className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                    <span>顧客対応時間が2倍に増え、商談成約率が向上します</span>
+                    <span>提案の出し遅れがなくなり、商機を逃さず受注率が向上します</span>
                   </div>
                 </CardContent>
               </Card>
