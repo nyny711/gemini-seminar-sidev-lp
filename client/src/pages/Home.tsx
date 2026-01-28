@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ArrowRight, BarChart3, Search, FileText, MessageSquare, BrainCircuit, Users, Clock, Target } from "lucide-react";
+import { CheckCircle2, ArrowRight, BarChart3, Search, FileText, MessageSquare, BrainCircuit, Users, Clock, Target, Gift, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { trpc } from "@/lib/trpc";
@@ -166,21 +166,59 @@ export default function Home() {
 
             {/* 特典情報 */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-10 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 0.4,
+                type: "spring",
+                stiffness: 100
+              }}
+              className="mb-10 max-w-3xl mx-auto"
             >
-              <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-2 border-amber-400 rounded-lg p-6 backdrop-blur-sm">
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <CheckCircle2 className="h-6 w-6 text-amber-400" />
-                  <h3 className="text-xl md:text-2xl font-bold text-amber-300">参加特典</h3>
-                  <CheckCircle2 className="h-6 w-6 text-amber-400" />
+              <motion.div 
+                animate={{ 
+                  boxShadow: [
+                    "0 0 20px rgba(251, 191, 36, 0.5)",
+                    "0 0 40px rgba(251, 191, 36, 0.8)",
+                    "0 0 20px rgba(251, 191, 36, 0.5)"
+                  ]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="relative bg-gradient-to-br from-amber-400 via-orange-400 to-red-500 rounded-2xl p-1"
+              >
+                <div className="bg-slate-900 rounded-xl p-8 md:p-10">
+                  <div className="flex items-center justify-center gap-4 mb-4">
+                    <motion.div
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <Gift className="h-10 w-10 md:h-12 md:w-12 text-amber-400" />
+                    </motion.div>
+                    <h3 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 bg-clip-text text-transparent">
+                      参加特典
+                    </h3>
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <Sparkles className="h-10 w-10 md:h-12 md:w-12 text-yellow-300" />
+                    </motion.div>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl md:text-3xl text-white font-bold mb-2">
+                      業界活用事例やプロンプト集を
+                    </p>
+                    <p className="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-yellow-300 via-amber-300 to-orange-300 bg-clip-text text-transparent">
+                      無料プレゼント！
+                    </p>
+                  </div>
                 </div>
-                <p className="text-base md:text-lg text-white font-semibold">
-                  業界活用事例やプロンプト集を<br className="sm:hidden" />無料プレゼント！
-                </p>
-              </div>
+              </motion.div>
             </motion.div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
