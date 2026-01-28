@@ -159,10 +159,29 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto">
               RFP・見積・技術照会などの複雑性が高い業務をAIで効率化し、<br />
               営業マンを「本来の仕事」に集中させる具体的メソッドを解説！
             </p>
+
+            {/* 特典情報 */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-10 max-w-2xl mx-auto"
+            >
+              <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-2 border-amber-400 rounded-lg p-6 backdrop-blur-sm">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <CheckCircle2 className="h-6 w-6 text-amber-400" />
+                  <h3 className="text-xl md:text-2xl font-bold text-amber-300">参加特典</h3>
+                  <CheckCircle2 className="h-6 w-6 text-amber-400" />
+                </div>
+                <p className="text-base md:text-lg text-white font-semibold">
+                  業界活用事例やプロンプト集を<br className="sm:hidden" />無料プレゼント！
+                </p>
+              </div>
+            </motion.div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
