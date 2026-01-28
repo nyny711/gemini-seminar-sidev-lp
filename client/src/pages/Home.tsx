@@ -358,7 +358,7 @@ export default function Home() {
               </Card>
             </motion.div>
 
-            {/* Card 3: 営業日報の効率化 */}
+            {/* Card 3: 商談記録の整理とアクション整理の効率化 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -373,8 +373,8 @@ export default function Home() {
                       <MessageSquare className="h-6 w-6" />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-xl mb-2 text-slate-900">営業日報の効率化</CardTitle>
-                      <p className="text-sm text-slate-600 font-normal">音声入力で日報作成を5分で完了</p>
+                      <CardTitle className="text-xl mb-2 text-slate-900">商談記録の整理とアクション整理の効率化</CardTitle>
+                      <p className="text-sm text-slate-600 font-normal">商談内容を構造化し、次のアクションを明確化</p>
                     </div>
                   </div>
                 </CardHeader>
