@@ -1,5 +1,6 @@
+// import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
@@ -16,12 +17,12 @@ import { toast } from "sonner";
 // セミナー情報の定義
 const seminar = {
   id: "vol1",
-  title: "「提案の属人化」を脱却する",
-  subtitle: "～赤字案件を防ぎ、利益体質の営業組織へ～",
+  title: "「商談時間」を最大化する",
+  subtitle: "～非コア業務をAIで自動化し、顧客に向き合う～",
   date: "2026年2月3日(火)",
   time: "14:00～15:00",
   image: "/seminar-vol1.png",
-  description: "RFP作成・要件定義・見積もり精度をAIが劇的に改善。提案スピードを2倍にする実践メソッドを解説！"
+  description: "日報・提案書・技術調査...その事務作業、AIなら一瞬です。営業担当者を「本来の仕事」に集中させる具体的メソッドを解説！"
 };
 
 export default function Home() {
@@ -152,15 +153,15 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              提案の属人化を脱却し<br />
+              SI・開発企業の営業を<br />
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                利益体質の営業組織へ
+                AIで変革する
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto">
-              RFP作成・要件定義・見積もり精度を、AIが劇的に改善。<br />
-              赤字案件を防ぎ、提案スピードを2倍にする実践メソッドを解説！
+              日報・提案書・技術調査などの非コア業務をAIで自動化し、<br />
+              営業担当者を「本来の仕事」に集中させる具体的メソッドを解説！
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -200,36 +201,26 @@ export default function Home() {
                   alt={seminar.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <Badge className="bg-cyan-600 text-white mb-3">
-                    {seminar.date} {seminar.time}
-                  </Badge>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                    {seminar.title}
-                  </h3>
-                  <p className="text-slate-200 text-sm md:text-base">
-                    {seminar.subtitle}
-                  </p>
-                </div>
               </div>
               <CardContent className="p-8">
-                <p className="text-slate-700 text-lg leading-relaxed mb-6">
-                  {seminar.description}
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Badge variant="outline" className="text-sm px-4 py-2">
-                    <Clock className="w-4 h-4 mr-2" />
-                    60分
-                  </Badge>
-                  <Badge variant="outline" className="text-sm px-4 py-2">
-                    <Users className="w-4 h-4 mr-2" />
-                    オンライン開催
-                  </Badge>
-                  <Badge variant="outline" className="text-sm px-4 py-2">
-                    <Target className="w-4 h-4 mr-2" />
-                    SI・開発企業向け
-                  </Badge>
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">{seminar.title}</h3>
+                <p className="text-lg text-cyan-600 mb-4">{seminar.subtitle}</p>
+                <div className="flex flex-wrap gap-4 mb-6">
+                  <div className="flex items-center gap-2 text-slate-700">
+                    <Clock className="h-5 w-5 text-cyan-600" />
+                    <span className="font-semibold">{seminar.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-700">
+                    <Target className="h-5 w-5 text-cyan-600" />
+                    <span className="font-semibold">{seminar.time}</span>
+                  </div>
+                </div>
+                <p className="text-slate-700 leading-relaxed">{seminar.description}</p>
+                <div className="mt-6 p-4 bg-cyan-50 rounded-lg border border-cyan-200">
+                  <p className="text-sm text-slate-700">
+                    <strong className="text-cyan-700">開催形式:</strong> オンライン（Google Meet）<br />
+                    <strong className="text-cyan-700">途中参加・途中退出:</strong> OK
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -238,215 +229,199 @@ export default function Home() {
       </section>
 
       {/* Problems Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl" />
-        </div>
-
-        <div className="container px-4 relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeIn}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              SI営業の「見えない赤字」、放置していませんか?
-            </h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              中堅企業の70%が抱える、営業プロセスの4大課題
-            </p>
-          </motion.div>
+      <section className="py-20 bg-white">
+        <div className="container px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">こんなお悩みありませんか？</h2>
+            <div className="w-20 h-1 bg-cyan-600 mx-auto mt-6" />
+          </div>
 
           <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-          >
-            <motion.div variants={fadeIn}>
-              <Card className="bg-slate-800/50 border-cyan-500/30 hover:border-cyan-500 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20 h-full backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="text-2xl mb-4 flex items-center gap-3">
-                    <Clock className="w-8 h-8 text-cyan-400" />
-                    RFP作成時の予算感欠如
-                  </CardTitle>
-                  <CardDescription className="text-base text-slate-300 leading-relaxed">
-                    予算感なしでRFPを作成すると、ベンダ見積が数倍にばらつき、選定が1年以上長期化。プロジェクト遅延リスクは2倍以上に。
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeIn}>
-              <Card className="bg-slate-800/50 border-blue-500/30 hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 h-full backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="text-2xl mb-4 flex items-center gap-3">
-                    <Search className="w-8 h-8 text-blue-400" />
-                    要件定義の属人化と情報点在
-                  </CardTitle>
-                  <CardDescription className="text-base text-slate-300 leading-relaxed">
-                    営業・SE個人の勘に依存し、情報が点在。提案内容・価格がブレて粗利が不安定化。若手が一人前になるまで数年かかる。
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeIn}>
-              <Card className="bg-slate-800/50 border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 h-full backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="text-2xl mb-4 flex items-center gap-3">
-                    <FileText className="w-8 h-8 text-purple-400" />
-                    見積もり精度の低さとリスク把握不足
-                  </CardTitle>
-                  <CardDescription className="text-base text-slate-300 leading-relaxed">
-                    見積精度がブラックボックス化し、赤字案件が発生。開発リスク（技術難易度、仕様変更、テスト工数）の把握が不十分。
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeIn}>
-              <Card className="bg-slate-800/50 border-green-500/30 hover:border-green-500 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 h-full backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="text-2xl mb-4 flex items-center gap-3">
-                    <Users className="w-8 h-8 text-green-400" />
-                    提案書作成の非効率と品質ばらつき
-                  </CardTitle>
-                  <CardDescription className="text-base text-slate-300 leading-relaxed">
-                    トップ営業の暗黙知が形式知化されず、提案の出し遅れで失注。テンプレートなく毎回ゼロから作成し、商談準備に追われる。
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeIn}
-            className="mt-16 text-center"
+            className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12"
           >
-            <Card className="bg-gradient-to-r from-red-900/30 to-orange-900/30 border-red-500/50 max-w-3xl mx-auto backdrop-blur-sm">
-              <CardContent className="p-8">
-                <p className="text-lg text-slate-200 leading-relaxed">
-                  <strong className="text-red-400">統計データ:</strong> 中堅企業の約<strong className="text-red-400">70%</strong>がRFP作成で課題を抱え、予算感を持つ企業はプロジェクト成功率が<strong className="text-red-400">30%高い</strong>。成功プロジェクトの<strong className="text-red-400">80%以上</strong>は問題の明確化と利益の特定が行われている。
-                </p>
-              </CardContent>
-            </Card>
+            {[
+              { icon: FileText, title: "日報作成に時間がかかる", desc: "毎日の営業日報作成に30分以上かかっている" },
+              { icon: Search, title: "技術情報の検索が大変", desc: "過去の提案資料や技術ドキュメントを探すのに時間がかかる" },
+              { icon: MessageSquare, title: "提案書作成が属人化", desc: "提案書の作成方法が担当者によってバラバラ" },
+              { icon: BarChart3, title: "商談準備に追われる", desc: "資料作成に時間を取られ、顧客対応の時間が不足" }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                variants={fadeIn}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="flex gap-6 p-6 bg-white rounded-xl border-2 border-slate-200 hover:border-cyan-500 transition-colors shadow-sm hover:shadow-md"
+              >
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-100 text-cyan-600">
+                    <item.icon className="h-6 w-6" />
+                  </div>
+                </div>
+                <div className="flex-1 text-left">
+                  <h3 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h3>
+                  <p className="text-slate-600">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
+          
+          <div className="mt-16 text-center">
+            <div className="inline-block bg-slate-900 text-white px-8 py-4 rounded-lg shadow-xl relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[10px] border-b-slate-900"></div>
+              <p className="text-xl font-bold">その課題、<span className="text-cyan-400">Gemini</span>で解決できます。</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* What You'll Learn Section */}
-      <section className="py-20 bg-white">
+      {/* What You Will Learn Section */}
+      <section className="py-20 bg-white relative">
         <div className="container px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeIn}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              このセミナーで学べること
-            </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              予算感を持った企業はプロジェクト成功率が30%高い。AIで営業を再現設計する実践ノウハウ
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">本セミナーで学べること</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              SI・開発企業の営業現場で実際に使える、4つの実践スキルを習得できます。
             </p>
-          </motion.div>
+            <div className="w-20 h-1 bg-cyan-600 mx-auto mt-6" />
+          </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Card 1: 専門知識の整理・要約 */}
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              variants={staggerContainer}
-              className="space-y-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0 }}
+              className="group relative"
             >
-              <motion.div variants={fadeIn}>
-                <Card className="border-l-4 border-l-cyan-600 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <CheckCircle2 className="w-6 h-6 text-cyan-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-xl font-bold mb-2 text-slate-900">RFP作成の予算感形成</h3>
-                        <p className="text-slate-600 leading-relaxed">
-                          IT導入の利益（ROI）を明確化し、金額換算して妥当な予算を算出する方法。「今回のIT導入がもたらす具体的な利益は何か?」という問いに答え、ベンダ選定を迅速化。
-                        </p>
-                      </div>
+              <Card className="border-2 border-slate-200 hover:border-cyan-500 transition-all shadow-sm hover:shadow-lg h-full">
+                <CardHeader className="bg-gradient-to-br from-cyan-50 to-blue-50 pb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 bg-cyan-600 text-white rounded-lg p-3">
+                      <Search className="h-6 w-6" />
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl mb-2 text-slate-900">専門知識の整理・要約</CardTitle>
+                      <p className="text-sm text-slate-600 font-normal">膨大な技術資料を瞬時に検索・要約</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <p className="text-slate-700 leading-relaxed mb-4">
+                    技術仕様書、過去の提案資料、開発ドキュメントなど、社内に散在する情報を一元管理し、
+                    必要な情報を瞬時に引き出す方法を学びます。
+                  </p>
+                  <div className="flex items-start gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="h-5 w-5 text-cyan-600 flex-shrink-0 mt-0.5" />
+                    <span>顧客からの技術的な質問に即座に対応できるようになります</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-              <motion.div variants={fadeIn}>
-                <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-xl font-bold mb-2 text-slate-900">要件定義の脱属人化</h3>
-                        <p className="text-slate-600 leading-relaxed">
-                          トップ営業の思考をテンプレート化し、接点情報を一元化・自動記録する仕組み。顧客の真の課題を深掘りし、情報の点在・漏れ・継承不能を解消。
-                        </p>
-                      </div>
+            {/* Card 2: 提案資料の自動生成 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group relative"
+            >
+              <Card className="border-2 border-slate-200 hover:border-cyan-500 transition-all shadow-sm hover:shadow-lg h-full">
+                <CardHeader className="bg-gradient-to-br from-blue-50 to-indigo-50 pb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 bg-blue-600 text-white rounded-lg p-3">
+                      <FileText className="h-6 w-6" />
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl mb-2 text-slate-900">提案資料の自動生成</CardTitle>
+                      <p className="text-sm text-slate-600 font-normal">顧客ごとにカスタマイズされた提案書を短時間で作成</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <p className="text-slate-700 leading-relaxed mb-4">
+                    顧客情報とソリューションデータを組み合わせて、説得力のある提案資料を自動生成。
+                    営業担当者は戦略立案に集中できます。
+                  </p>
+                  <div className="flex items-start gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span>提案書作成時間を70%削減し、商談準備の質を向上させます</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-              <motion.div variants={fadeIn}>
-                <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <CheckCircle2 className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-xl font-bold mb-2 text-slate-900">見積もり精度の向上</h3>
-                        <p className="text-slate-600 leading-relaxed">
-                          開発リスクを可視化し、工数を細分化して正確な見積を作成する手法。「一式見積」を脱却し、技術的難易度・仕様変更・テスト工数を明確化して赤字案件を防止。
-                        </p>
-                      </div>
+            {/* Card 3: 営業日報の効率化 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="group relative"
+            >
+              <Card className="border-2 border-slate-200 hover:border-cyan-500 transition-all shadow-sm hover:shadow-lg h-full">
+                <CardHeader className="bg-gradient-to-br from-indigo-50 to-purple-50 pb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 bg-indigo-600 text-white rounded-lg p-3">
+                      <MessageSquare className="h-6 w-6" />
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl mb-2 text-slate-900">営業日報の効率化</CardTitle>
+                      <p className="text-sm text-slate-600 font-normal">音声入力で日報作成を5分で完了</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <p className="text-slate-700 leading-relaxed mb-4">
+                    商談内容を音声で記録し、AIが自動で整形・要約。
+                    帰社後の日報作成時間を大幅に削減します。
+                  </p>
+                  <div className="flex items-start gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <span>毎日30分かかっていた日報作成が5分で完了します</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-              <motion.div variants={fadeIn}>
-                <Card className="border-l-4 border-l-green-600 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-xl font-bold mb-2 text-slate-900">提案書の再現設計</h3>
-                        <p className="text-slate-600 leading-relaxed">
-                          AIが「次の一手」を提示し、提案スピードを2倍にする営業プロセス改革。過去の成功事例を学習させ、顧客に最適化された提案書を自動生成。
-                        </p>
-                      </div>
+            {/* Card 4: 顧客対応の質向上 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="group relative"
+            >
+              <Card className="border-2 border-slate-200 hover:border-cyan-500 transition-all shadow-sm hover:shadow-lg h-full">
+                <CardHeader className="bg-gradient-to-br from-purple-50 to-pink-50 pb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 bg-purple-600 text-white rounded-lg p-3">
+                      <BrainCircuit className="h-6 w-6" />
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div variants={fadeIn}>
-                <Card className="border-l-4 border-l-orange-600 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <BrainCircuit className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-xl font-bold mb-2 text-slate-900">Gemini活用の実践デモ</h3>
-                        <p className="text-slate-600 leading-relaxed">
-                          RFP作成、要件定義、見積もり作成の各場面で、Geminiをどう活用するか実際の画面を見ながら解説。すぐに実践できる具体的なプロンプトと活用法を公開。
-                        </p>
-                      </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl mb-2 text-slate-900">顧客対応の質向上</CardTitle>
+                      <p className="text-sm text-slate-600 font-normal">事務作業を削減し、顧客との時間を最大化</p>
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <p className="text-slate-700 leading-relaxed mb-4">
+                    AIが非コア業務を代行することで、営業担当者は顧客との関係構築や
+                    戦略的な提案活動に時間を使えるようになります。
+                  </p>
+                  <div className="flex items-start gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span>顧客対応時間が2倍に増え、商談成約率が向上します</span>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
@@ -455,231 +430,376 @@ export default function Home() {
       {/* FAQ Section */}
       <section className="py-20 bg-slate-50">
         <div className="container px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeIn}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">よくある質問</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">よくある質問</h2>
             <div className="w-20 h-1 bg-cyan-600 mx-auto mt-6" />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeIn}
-            className="max-w-3xl mx-auto"
-          >
+          <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="bg-white border border-slate-200 rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-cyan-600">
-                  このセミナーはどのような方が対象ですか？
+              <AccordionItem value="item-1" className="bg-white border-2 border-slate-200 rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-cyan-600">
+                  AIの知識がなくても参加できますか？
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-600 leading-relaxed">
-                  SI・開発企業の営業担当者、営業マネージャー、プリセールスSE、経営層の方が対象です。特に、RFP作成・要件定義・見積もりに課題を感じている方、提案の属人化を解消したい方に最適です。
+                  はい、AIの専門知識は一切不要です。本セミナーは、SI・開発企業の営業担当者向けに、
+                  実務ですぐに使える具体的な活用方法をわかりやすく解説します。
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-2" className="bg-white border border-slate-200 rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-cyan-600">
-                  Geminiを使ったことがなくても参加できますか？
+              <AccordionItem value="item-2" className="bg-white border-2 border-slate-200 rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-cyan-600">
+                  途中参加・途中退出は可能ですか？
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-600 leading-relaxed">
-                  はい、問題ありません。セミナーでは基本的な使い方から実践的な活用法まで、実際の画面を見ながら丁寧に解説します。すぐに実践できる具体的なプロンプトもご紹介します。
+                  はい、可能です。業務の都合で途中参加・途中退出される場合も、
+                  お気軽にご参加ください。
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-3" className="bg-white border border-slate-200 rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-cyan-600">
-                  セミナー後のフォローはありますか？
+              <AccordionItem value="item-3" className="bg-white border-2 border-slate-200 rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-cyan-600">
+                  資料は配布されますか？
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-600 leading-relaxed">
-                  はい。セミナー後に実践ガイド資料をお送りします。また、ご希望の方には個別相談の機会もご用意しています。
+                  はい、セミナー終了後に参加者の皆様へ資料をメールでお送りします。
+                  復習や社内共有にご活用ください。
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4" className="bg-white border border-slate-200 rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-cyan-600">
+              <AccordionItem value="item-4" className="bg-white border-2 border-slate-200 rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-cyan-600">
+                  複数名での参加は可能ですか？
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-600 leading-relaxed">
+                  はい、可能です。チームでの参加も大歓迎です。
+                  お一人ずつお申し込みいただくか、代表者の方がまとめてお申し込みください。
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="bg-white border-2 border-slate-200 rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-cyan-600">
                   録画視聴は可能ですか？
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-600 leading-relaxed">
-                  はい、当日参加できない方にも録画視聴のURLをお送りします。お申し込み時にその旨をお知らせください。
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5" className="bg-white border border-slate-200 rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold hover:text-cyan-600">
-                  自社の課題に合わせたアドバイスはもらえますか？
-                </AccordionTrigger>
-                <AccordionContent className="text-slate-600 leading-relaxed">
-                  セミナー内のQ&Aセッションで個別の質問にお答えします。また、申込フォームの「現在の課題」欄にご記入いただければ、セミナー内容に反映させていただきます。
+                  申し訳ございませんが、録画視聴のご提供は予定しておりません。
+                  リアルタイムでのご参加をお願いいたします。
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Free Section */}
+      <section className="py-20 bg-white">
+        <div className="container px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">なぜ"無料"で実施するのか</h2>
+            <div className="w-20 h-1 bg-cyan-600 mx-auto mb-12" />
+            
+            <div className="text-left space-y-6 text-slate-700 leading-relaxed text-lg">
+              <p>
+                私たちは、AIを活用することで業務改善が実際に進むということを、<br />
+                まずは体感していただきたいと考えています。
+              </p>
+              <p>
+                単なる知識提供ではなく、<br />
+                「自社の業務にどう活かせるのか」「どこが効率化できそうか」を<br />
+                具体的にイメージしていただくことが目的です。
+              </p>
+              <p className="font-semibold text-cyan-700">
+                まずは60分、"成果につながるAI活用"を体験してください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Overview Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="container px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">参加概要</h2>
+            <div className="w-20 h-1 bg-cyan-600 mx-auto mt-6" />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="border-2 border-slate-200 shadow-sm">
+              <CardHeader className="bg-gradient-to-br from-cyan-50 to-blue-50">
+                <CardTitle className="flex items-center gap-3 text-slate-900">
+                  <Users className="h-6 w-6 text-cyan-600" />
+                  対象
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <ul className="space-y-2 text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-cyan-600 flex-shrink-0 mt-0.5" />
+                    <span>SI・開発企業の営業担当者</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-cyan-600 flex-shrink-0 mt-0.5" />
+                    <span>営業企画・管理職の方</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-slate-200 shadow-sm">
+              <CardHeader className="bg-gradient-to-br from-blue-50 to-indigo-50">
+                <CardTitle className="flex items-center gap-3 text-slate-900">
+                  <Clock className="h-6 w-6 text-blue-600" />
+                  日時・所要時間
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <ul className="space-y-2 text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span>{seminar.date}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span>{seminar.time}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span>約60分</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-slate-200 shadow-sm">
+              <CardHeader className="bg-gradient-to-br from-indigo-50 to-purple-50">
+                <CardTitle className="flex items-center gap-3 text-slate-900">
+                  <Target className="h-6 w-6 text-indigo-600" />
+                  開催形式
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <ul className="space-y-2 text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <span>オンライン（Google Meet）</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <span>※全国どこからでも参加可能</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-cyan-500 shadow-lg bg-gradient-to-br from-cyan-50 to-blue-50">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3 text-slate-900">
+                  <CheckCircle2 className="h-6 w-6 text-cyan-600" />
+                  参加費
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <p className="text-3xl font-bold text-cyan-600">無料</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section Before Form */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-cyan-500" />
+          <div className="absolute bottom-0 left-0 w-full h-[1px] bg-cyan-500" />
+        </div>
+        
+        <div className="container px-4 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              営業のやり方、<br />
+              そろそろアップデートしませんか？
+            </h2>
+            <p className="text-xl text-slate-300 mb-8">
+              Geminiで変わる"次世代のSI・開発営業"を体験してください。
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all"
+              onClick={() => document.getElementById('registration-form')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              今すぐ申し込む（無料）
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </motion.div>
         </div>
       </section>
 
       {/* Registration Form Section */}
-      <section id="registration-form" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <section id="registration-form" className="py-20 bg-white">
         <div className="container px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeIn}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">参加申し込み</h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              完全無料・オンライン開催。今すぐお申し込みください。
-            </p>
-          </motion.div>
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">参加申し込み</h2>
+              <div className="w-20 h-1 bg-cyan-600 mx-auto mt-6" />
+            </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeIn}
-            className="max-w-2xl mx-auto"
-          >
-            <Card className="bg-slate-800/50 border-cyan-500/30 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl text-white">申し込みフォーム</CardTitle>
-              </CardHeader>
-              <CardContent>
+            <Card className="border-2 border-slate-200 shadow-lg">
+              <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium mb-2 text-slate-200">
-                      会社名 <span className="text-red-400">*</span>
+                    <label htmlFor="company" className="block text-sm font-semibold text-slate-900 mb-2">
+                      会社名 <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       id="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white placeholder-slate-400"
                       placeholder="〇〇システム株式会社"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                     />
                     {formErrors.company && (
-                      <p className="mt-2 text-sm text-red-400">{formErrors.company}</p>
+                      <p className="mt-1 text-sm text-red-500">{formErrors.company}</p>
                     )}
                   </div>
 
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2 text-slate-200">
-                      お名前 <span className="text-red-400">*</span>
+                    <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-2">
+                      名前 <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       id="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white placeholder-slate-400"
-                      placeholder="山田 太郎"
+                      placeholder="山田太郎"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                     />
                     {formErrors.name && (
-                      <p className="mt-2 text-sm text-red-400">{formErrors.name}</p>
+                      <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>
                     )}
                   </div>
 
                   <div>
-                    <label htmlFor="position" className="block text-sm font-medium mb-2 text-slate-200">
-                      役職 <span className="text-red-400">*</span>
+                    <label htmlFor="position" className="block text-sm font-semibold text-slate-900 mb-2">
+                      役職 <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       id="position"
                       value={formData.position}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white placeholder-slate-400"
                       placeholder="営業部長"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                     />
                     {formErrors.position && (
-                      <p className="mt-2 text-sm text-red-400">{formErrors.position}</p>
+                      <p className="mt-1 text-sm text-red-500">{formErrors.position}</p>
                     )}
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-slate-200">
-                      メールアドレス <span className="text-red-400">*</span>
+                    <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">
+                      メールアドレス <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
                       id="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white placeholder-slate-400"
-                      placeholder="yamada@example.com"
+                      placeholder="name@company.com"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                     />
                     {formErrors.email && (
-                      <p className="mt-2 text-sm text-red-400">{formErrors.email}</p>
+                      <p className="mt-1 text-sm text-red-500">{formErrors.email}</p>
                     )}
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2 text-slate-200">
-                      電話番号 <span className="text-red-400">*</span>
+                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-900 mb-2">
+                      電話番号 <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white placeholder-slate-400"
-                      placeholder="03-1234-5678"
+                      placeholder="090-1234-5678"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors"
                     />
                     {formErrors.phone && (
-                      <p className="mt-2 text-sm text-red-400">{formErrors.phone}</p>
+                      <p className="mt-1 text-sm text-red-500">{formErrors.phone}</p>
                     )}
                   </div>
 
                   <div>
-                    <label htmlFor="challenge" className="block text-sm font-medium mb-2 text-slate-200">
-                      現在の課題（任意）
+                    <label htmlFor="challenge" className="block text-sm font-semibold text-slate-900 mb-2">
+                      課題に感じていること
                     </label>
                     <textarea
                       id="challenge"
                       value={formData.challenge}
                       onChange={handleInputChange}
+                      placeholder="例：提案書作成に時間がかかる、技術調査が属人化している..."
                       rows={4}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white placeholder-slate-400 resize-none"
-                      placeholder="例：RFP作成に時間がかかる、見積もり精度が低い、要件定義が属人化している など"
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    size="lg"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white py-6 text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
                   >
-                    {isSubmitting ? "送信中..." : "今すぐ申し込む（無料）"}
-                    {!isSubmitting && <ArrowRight className="ml-2 h-5 w-5" />}
+                    {isSubmitting ? "送信中..." : "無料で参加登録する"}
                   </Button>
+
+                  <div className="text-center text-sm text-slate-600 space-y-1">
+                    <p>※ 研修に関して、事前にご連絡させていただく場合がございます。</p>
+                    <p>※ 同業他社様のご参加はお断りする場合がございます。</p>
+                  </div>
                 </form>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+      <footer className="bg-slate-900 text-white py-12">
         <div className="container px-4">
-          <div className="text-center">
-            <p className="text-sm mb-4">
-              主催: anyenv株式会社
-            </p>
-            <p className="text-sm">
-              お問い合わせ: <a href="mailto:info@anyenv-inc.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">info@anyenv-inc.com</a>
-            </p>
-            <p className="text-xs mt-6 text-slate-500">
-              © 2026 anyenv Inc. All rights reserved.
-            </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="font-bold text-lg mb-4">会社概要</h3>
+              <div className="space-y-2 text-slate-400 text-sm">
+                <p>会社名:anyenv株式会社</p>
+                <p>代表取締役:四宮 浩二</p>
+                <p>住所:東京都渋谷区道玄坂2-25-12<br />道玄坂通5F</p>
+              </div>
+              <p className="text-xs text-slate-500 mt-4">
+                anyenv株式会社は、エージェントグループ(証券コード:7098)の<br />
+                DX・AI専門関連会社です
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4">お問い合わせ</h3>
+              <a href="mailto:info@anyenv-inc.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                info@anyenv-inc.com
+              </a>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4">その他</h3>
+              <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                プライバシーポリシー
+              </a>
+            </div>
           </div>
         </div>
       </footer>
