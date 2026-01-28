@@ -195,11 +195,11 @@ export default function Home() {
 
           <div className="max-w-4xl mx-auto">
             <Card className="border-2 border-cyan-500 shadow-xl overflow-hidden">
-              <div className="relative h-64 md:h-80">
+              <div className="relative h-80 md:h-96">
                 <img 
                   src={seminar.image} 
                   alt={seminar.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain bg-white"
                 />
               </div>
               <CardContent className="p-8">
