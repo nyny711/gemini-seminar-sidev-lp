@@ -19,10 +19,10 @@ const seminar = {
   id: "vol1",
   title: "「商談時間」を最大化する",
   subtitle: "～非コア業務をAIで自動化し、顧客に向き合う～",
-  date: "2026年2月3日(火)",
+  date: "2026年2月10日(火)",
   time: "14:00～15:00",
   image: "/seminar-vol1.png",
-  description: "日報・提案書・技術調査...その事務作業、AIなら一瞬です。営業担当者を「本来の仕事」に集中させる具体的メソッドを解説！"
+  description: "RFP・見積・技術照会...その事務作業をAIで効率的に行えます。営業マンを「本来の仕事」に集中させる具体的メソッドを解説！"
 };
 
 export default function Home() {
@@ -160,8 +160,8 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto">
-              日報・提案書・技術調査などの非コア業務をAIで自動化し、<br />
-              営業担当者を「本来の仕事」に集中させる具体的メソッドを解説！
+              RFP・見積・技術照会などの複雑性が高い業務をAIで効率化し、<br />
+              営業マンを「本来の仕事」に集中させる具体的メソッドを解説！
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
