@@ -90,3 +90,6 @@
 
 ## プライバシーポリシーリンクの変更
 - [x] プライバシーポリシーのリンクをhttps://www.anyenv-inc.com/privacypolicyに変更（target="_blank"、rel="noopener noreferrer"追加）
+
+## タイトルタグの変更
+- [x] ページタイトルを「人材業界の営業をAIで変革｜anyenv主催セミナー」に変更（client/index.html）
