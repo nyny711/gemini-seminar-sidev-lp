@@ -146,7 +146,7 @@ export default function Home() {
             </Badge>
             
             <div className="mb-8">
-              <p className="text-cyan-400 text-lg mb-2">SI・開発DXウェビナー 営業改革シリーズ</p>
+              <p className="text-cyan-400 text-lg mb-2">SI・開発DXウェビナー Google Geminiを活用した営業改革シリーズ</p>
               <div className="flex items-center justify-center gap-3 flex-wrap">
                 <Badge className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-2 text-base">
                   参加無料
