@@ -146,15 +146,16 @@ export default function Home() {
             </Badge>
             
             <div className="mb-8">
-              <p className="text-cyan-400 text-lg mb-2">SI・開発DXウェビナー Google Geminiを活用した営業改革シリーズ</p>
-              <div className="flex items-center justify-center gap-3 flex-wrap">
-                <Badge className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-2 text-base">
-                  参加無料
-                </Badge>
-                <Badge variant="outline" className="border-blue-400 text-blue-300 bg-blue-500/10 px-6 py-2 text-base font-semibold">
-                  Google Gemini活用
-                </Badge>
-              </div>
+              <h2 className="text-xl md:text-2xl font-bold mb-4 leading-relaxed">
+                <span className="text-cyan-300">SI・開発DXウェビナー</span>
+                <br />
+                <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                  Google Geminiを活用した営業改革シリーズ
+                </span>
+              </h2>
+              <Badge className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-2 text-base">
+                参加無料
+              </Badge>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
