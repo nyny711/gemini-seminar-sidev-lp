@@ -147,9 +147,14 @@ export default function Home() {
             
             <div className="mb-8">
               <p className="text-cyan-400 text-lg mb-2">SI・開発DXウェビナー 営業改革シリーズ</p>
-              <Badge className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-2 text-base">
-                参加無料
-              </Badge>
+              <div className="flex items-center justify-center gap-3 flex-wrap">
+                <Badge className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-2 text-base">
+                  参加無料
+                </Badge>
+                <Badge variant="outline" className="border-blue-400 text-blue-300 bg-blue-500/10 px-6 py-2 text-base font-semibold">
+                  Google Gemini活用
+                </Badge>
+              </div>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -271,7 +276,16 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-slate-700 leading-relaxed">{seminar.description}</p>
-                <div className="mt-6 p-4 bg-cyan-50 rounded-lg border border-cyan-200">
+                <div className="mt-6 p-4 bg-blue-50 rounded-lg border-2 border-blue-300">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="outline" className="border-blue-500 text-blue-700 bg-blue-100 px-3 py-1 text-sm font-bold">
+                      Google Gemini
+                    </Badge>
+                    <span className="text-blue-700 font-semibold">を活用した研修です</span>
+                  </div>
+                  <p className="text-sm text-slate-600">最新のGoogle AI技術を営業現場で実践的に活用する方法を学びます。</p>
+                </div>
+                <div className="mt-4 p-4 bg-cyan-50 rounded-lg border border-cyan-200">
                   <p className="text-sm text-slate-700">
                     <strong className="text-cyan-700">開催形式:</strong> オンライン（Google Meet）<br />
                     <strong className="text-cyan-700">途中参加・途中退出:</strong> OK
